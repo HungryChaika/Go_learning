@@ -183,7 +183,30 @@ func test15() {
 }
 
 func test16() {
-
+	var elems = map[string]int{
+		"Ivanov":  1,
+		"Petrov":  2,
+		"Sidorov": 3,
+		"qwerty":  999,
+	}
+	fmt.Println(elems)
+	fmt.Println("Ivanov: ", elems["Ivanov"])
+	fmt.Println("qwerty: ", elems["qwerty"])
+	elems["qwerty"] = 777
+	fmt.Println("qwerty: ", elems["qwerty"])
+	if val, ok := elems["Petrov"]; ok {
+		fmt.Println(val)
+	}
+	for index, value := range elems {
+		fmt.Println(index, value)
+	}
+	mymap := make(map[int]bool)
+	fmt.Println(mymap)
+	mymap[0] = true
+	mymap[1] = false
+	fmt.Println(mymap)
+	delete(mymap, 0)
+	fmt.Println(mymap)
 }
 
 /*
