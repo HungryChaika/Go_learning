@@ -24,6 +24,22 @@ type link_struct struct {
 	next   *link_struct
 }
 
+type struct_for_test_method struct {
+	number int
+}
+
+func (elem struct_for_test_method) print() {
+	fmt.Println(elem.number)
+}
+
+func (elem struct_for_test_method) change(new_num int) {
+	elem.number = new_num
+}
+
+func (elem *struct_for_test_method) change_with_pointer(new_num int) {
+	(*elem).number = new_num
+}
+
 func main() {
 	fmt.Println("Start")
 	//test1()
@@ -112,7 +128,14 @@ func test8() {
 }
 
 func test9() {
-
+	var num_struct struct_for_test_method = struct_for_test_method{4}
+	num_struct.change(5)
+	num_struct.print()
+	num_struct.change_with_pointer(20)
+	num_struct.print()
+	var pointer_elem *struct_for_test_method = &num_struct
+	pointer_elem.change_with_pointer(1)
+	num_struct.print()
 }
 
 /*
